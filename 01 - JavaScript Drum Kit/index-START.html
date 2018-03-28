@@ -67,13 +67,18 @@
       key.classList.add('playing');
     });
 
-    function removeTransition(e) {
-      if (e.propertyName !== 'transform') return;
-      this.classList.remove('playing');
-    }
+    // function removeTransition(e) {
+    //   if (e.propertyName !== 'transform') return;
+    //   this.classList.remove('playing');
+    // }
 
-    const allkeys = document.querySelectorAll('.key');
-    allkeys.forEach(key => key.addEventListener('transitionend', removeTransition));
+    window.addEventListener("keyup", function(e){
+      const div = document.querySelector(`div[data-key="${e.keyCode}"]`);
+      div.classList.remove('playing');
+    });
+
+    // const allkeys = document.querySelectorAll('.key');
+    // allkeys.forEach(key => key.addEventListener('transitionend', removeTransition));
 
   </script>
 
